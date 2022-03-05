@@ -1,3 +1,7 @@
+* {
+    font-family: Arial;
+}
+
 h1 {
     color: red;
 }
@@ -10,16 +14,14 @@ main {
 }
 
 form {
-    width: 300px;
+    width: 400px;
     height: auto;
 }
 
-#start{
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
+.buttons{
+    background-color: green;
     padding: 15px 32px;
     text-align: center;
-    text-decoration: none;
     display: inline-block;
-    font-size: 16px;}
+    font-size: 20px;
+}
