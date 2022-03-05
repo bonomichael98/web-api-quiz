@@ -4,44 +4,50 @@ let timeRemaining = 60;
 let score = 0;
 let questionNumber = 0;
 
-let question1 = {
-    q = "Which country do cities of Perth, Adelade & Brisbane belong to?",
-    a1 = "Australia",
-    a2 = "Russia",
-    a3 = "Italy",
-    a4 = "Uruguay"
-}
-let question2 = {
-    q = "What is \"cynophobia\"?",
-    a1 = "Fear of snakes",
-    a2 = "Fear of dogs",
-    a3 = "Fear of injections",
-    a4 = "Fear of sleeping"
-}
+let questions = [{
+        question = "Which country do cities of Perth, Adelade & Brisbane belong to? ",
+        answers: [
+            { text:"Australia", answer: true },
+            { text:"Russia", answer: false },
+            { text:"Italy", answer: false },
+            { text:"Uruguay", answer: false }
+        ]},
+        {
+        question = "What is \"cynophobia\"?",
+        answers: [
+            { text:"Fear of snakes", answer: false },
+            { text:"Fear of dogs", answer: true },
+            { text:"Fear of injections", answer: false },
+            { text:"Fear of sleeping", answer: false }
+        ]},
+        {
+        question = "Who was the first woman pilot to fly solo across the Atlantic?",
+        answers: [
+            { text:"Amelia Earhart", answer: true },
+            { text:"Bessie Coleman", answer: false },
+            { text:"Jacqueline Cochran", answer: false },
+            { text:"Tammie Jo Schults", answer: false }
+            
+        ]},
+        {
+        question = "What is the name of the biggest technology company in South Korea?",
+        answers: [
+            { text:"POSCO", answer: false },
+            { text:"KIA", answer: false },
+            { text:"Hyundai", answer: false },
+            { text:"Samsung", answer: true }
+        ]},
+        {
+        question = "Worship of Krishna is observed by which Religious Faith?",
+        answers: [
+            { text:"Paganism", answer: false },
+            { text:"Islam", answer: false },
+            { text:"Hindu", answer: true },
+            { text:"Buddhism", answer: false }
+            ]
+}];
 
-let question3 = {
-    q = "What is the name of the biggest technology company in South Korea?",
-    a1 = "POSCO",
-    a2 = "KIA",
-    a3 = "Hyundai",
-    a4 = "Samsung"
-}
 
-let question4 = {
-    q = "Who was the first woman pilot to fly solo across the Atlantic?",
-    a1 = "Amelia Earhart",
-    a2 = "Fear of dogs",
-    a3 = "Fear of injections",
-    a4 = "Fear of sleeping"
-}
-
-let question5 = {
-    q = "Worship of Krishna is observed by which Religious Faith?",
-    a1 = "Paganism",
-    a2 = "Islam",
-    a3 = "Hinduism",
-    a4 = "Buddhism"
-}
 
 // startButton = document.getElementById('start').addEventListener('click', function() {
 //     console.log('start clicked');
