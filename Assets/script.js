@@ -3,9 +3,8 @@ let scoresButton = document.getElementById('display-scores');
 let timeRemaining = 60;
 let score = 0;
 let questionNumber = 0;
-
 let questions = [{
-        question = "Which country do cities of Perth, Adelade & Brisbane belong to? ",
+        question : "Which country do cities of Perth, Adelade & Brisbane belong to? ",
         answers: [
             { text:"Australia", answer: true },
             { text:"Russia", answer: false },
@@ -13,7 +12,7 @@ let questions = [{
             { text:"Uruguay", answer: false }
         ]},
         {
-        question = "What is \"cynophobia\"?",
+        question : "What is \"cynophobia\"?",
         answers: [
             { text:"Fear of snakes", answer: false },
             { text:"Fear of dogs", answer: true },
@@ -21,7 +20,7 @@ let questions = [{
             { text:"Fear of sleeping", answer: false }
         ]},
         {
-        question = "Who was the first woman pilot to fly solo across the Atlantic?",
+        question : "Who was the first woman pilot to fly solo across the Atlantic?",
         answers: [
             { text:"Amelia Earhart", answer: true },
             { text:"Bessie Coleman", answer: false },
@@ -30,7 +29,7 @@ let questions = [{
             
         ]},
         {
-        question = "What is the name of the biggest technology company in South Korea?",
+        question : "What is the name of the biggest technology company in South Korea?",
         answers: [
             { text:"POSCO", answer: false },
             { text:"KIA", answer: false },
@@ -38,7 +37,7 @@ let questions = [{
             { text:"Samsung", answer: true }
         ]},
         {
-        question = "Worship of Krishna is observed by which Religious Faith?",
+        question : "Worship of Krishna is observed by which Religious Faith?",
         answers: [
             { text:"Paganism", answer: false },
             { text:"Islam", answer: false },
@@ -47,6 +46,22 @@ let questions = [{
             ]
 }];
 
+let timer = function runTimer(timeRemaining){
+    setTimeout(function() {
+        console.log('hello');
+        timeRemaining--;
+        if (timeRemaining <= 0) {
+            //runTimer();
+            console.log('hello')
+        } else {
+            endQuiz();
+        }
+    }, 1000)
+}
+
+let endQuiz = function() {
+
+}
 
 
 // startButton = document.getElementById('start').addEventListener('click', function() {
@@ -98,4 +113,4 @@ let hideElement = function hide() {
 
 let createButtons = document.createElement("button");
 //let text = document.createTextNode(questions[questionNumber])
-createButtons.appendChild()
+// createButtons.appendChild()
