@@ -46,18 +46,28 @@ let questions = [{
             ]
 }];
 
-let timer = function runTimer(timeRemaining){
-    setTimeout(function() {
-        console.log('hello');
-        timeRemaining--;
-        if (timeRemaining <= 0) {
-            //runTimer();
-            console.log('hello')
-        } else {
-            endQuiz();
-        }
-    }, 1000)
-}
+// let timer = function runTimer(timeRemaining){
+//     setTimeout(function() {
+//         console.log('hello');
+//         timeRemaining++;
+//         if (timeRemaining <= 0) {
+//             runTimer();
+//             console.log('hello')
+//         } else {
+//             endQuiz();
+//         }
+//     }, 1000)
+//}
+//
+
+
+//  let timer = function runTimer() {
+//  for (let i = 60; i <= 0; i--) {
+//      console.log('hello')
+//   }
+//  for (let i = 60; i <= 0; --i) {
+//      console.log('hello');
+//   }
 
 let endQuiz = function() {
 
@@ -73,10 +83,10 @@ let endQuiz = function() {
 // let test = console.log('button has been clicked');
 //stop page from refreshing on button clicks
 let form = document.getElementById('main-form');
-function handleForm(event) {
+function submitForm(event) {
     event.preventDefault();
 };
-form.addEventListener('submit', handleForm);
+form.addEventListener('submit', submitForm);
 
 
 
@@ -91,7 +101,6 @@ document.getElementById('start').addEventListener('click', function() {
  document.getElementById('display-scores').addEventListener('click', function() {
     console.log('scores clicked');
     hideElement();
-
  });
 
 // let start = startGame() {
@@ -111,6 +120,29 @@ let hideElement = function hide() {
     scoresButton.remove();
 }
 
-let createButtons = document.createElement("button");
+let createButton = document.createElement("button");
+let text = document.createTextNode();
 //let text = document.createTextNode(questions[questionNumber])
-// createButtons.appendChild()
+
+
+// for (let i = timeRemaining; i <= 0; i--) {
+//     //create option element
+//     let createButtons = document.createElement("button");
+//     statusOptionEl.textContent = statusChoices[i];
+//     statusOptionEl.setAttribute("value", statusChoices[i]);
+
+//     //append to select
+//     statusSelectEl.appendChild(statusOptionEl);
+// }
+
+//create for loop that counts backwards from 60, begins when start button is selected
+
+//create function that appends buttons with questions[] array at current position when the variable with the correct attribute is selected
+
+//add class 'buttons' to all newly created buttons
+
+//create function that ends game when time remaining <= 0 or when questions are finished
+
+//save time remaining to a scores variable in local storage
+
+//create function to display scores from local storage when scoresButton is clicked
