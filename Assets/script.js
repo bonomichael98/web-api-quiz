@@ -3,6 +3,7 @@ let scoresButton = document.getElementById('display-scores');
 let timeRemaining = 60;
 let score = 0;
 let questionNumber = 0;
+let countdownTimerDisplay = document.getElementById('time-remaining');
 let questions = [{
         question : "Which country do cities of Perth, Adelade & Brisbane belong to? ",
         answers: [
@@ -69,9 +70,23 @@ let questions = [{
 //      console.log('hello');
 //   }
 
-let endQuiz = function() {
+// let endQuiz = function() {
+//     for(let i = 60; i <= 0; i-0) {
+//         console.log('1');
+//     }
+// }
 
-}
+// let timer = setInterval(function() {
+    // timeRemaining--;
+    // countdownTimerDisplay.textContent = 'You have ' + timeRemaining + ' seconds remaining.';
+    // if(timeRemaining <= 0) {
+        // console.log('end the timer');
+        // countdownTimerDisplay.textContent = 'You have 0 seconds remaining.';
+    // }else if(questionNumer = 4 ) {
+        // window.localStorage.setItem('playerScore', timeRemaining);
+        //clearInterval(timer);
+    // }
+// },1000)
 
 
 // startButton = document.getElementById('start').addEventListener('click', function() {
@@ -104,6 +119,17 @@ document.getElementById('start').addEventListener('click', function() {
  });
 
 // let start = startGame() {
+    let timer = setInterval(function() {
+        timeRemaining--;
+        countdownTimerDisplay.textContent = 'You have ' + timeRemaining + ' seconds remaining.';
+        if(timeRemaining <= 0) {
+            console.log('end the timer');
+            countdownTimerDisplay.textContent = 'You have 0 seconds remaining.';
+        }else if(questionNumer = 4 ) {
+            window.localStorage.setItem('playerScore', timeRemaining);
+            //clearInterval(timer);
+        }
+    },1000)
 //     //create function to display buttons
 
 // };
@@ -121,7 +147,7 @@ let hideElement = function hide() {
 }
 
 let createButton = document.createElement("button");
-let text = document.createTextNode();
+//let text = document.createTextNode();
 //let text = document.createTextNode(questions[questionNumber])
 
 
