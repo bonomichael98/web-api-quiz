@@ -2,16 +2,15 @@ let startButton = document.getElementById('start');
 let scoresButton = document.getElementById('display-scores');
 let section1 = document.getElementById('section-1');
 let questionsSection = document.getElementById('cycled-questions');
-let answer1 = document.getElementById('answer1');
-let answer2 = document.getElementById('answer2');
-let answer3 = document.getElementById('answer3');
-let answer4 = document.getElementById('answer4');
+let answer1 = document.getElementById('button1');
+let answer2 = document.getElementById('button2');
+let answer3 = document.getElementById('button3');
+let answer4 = document.getElementById('button4');
 let answersElement = document.getElementById('answers');
 
 
 let timeRemaining = 60;
-let score = 0;
-let questionNumber = [];
+let questionNumber = 0;
 let countdownTimerDisplay = document.getElementById('time-remaining');
 let questions = [{
         title : "Which country do cities of Perth, Adelade & Brisbane belong to? ",
@@ -107,24 +106,32 @@ let hideElement = function(){
 };
 
 let addButtons = function(){
-    section1.classList.remove('hidden');
+    section1.classList.remove('hidden');;
 };
 
-let cycleText = function(){
-    for (let i = 0; i < questions.length; i++) {
-        questionNumber = questions[i];
-        console.log(questionNumber);
-        //questions.title.forEach();
-        questionNumber.answers.forEach(function(answers, i) {
-            let answerButton = document.createElement('button');
-            answerButton.setAttribute('class', 'buttons answer');
-            answerButton.setAttribute('value', answers);
-            answerButton.textContent = answers;
-//            answerButton.onClick = checkAnswer();
-            answersElement.appendChild(answerButton);
-        })
-    }
-};
+let cycleText = function() {
+    questionsSection.textContent = questions[questionNumber].title;
+    answer1.textContent = questions[questionNumber].answers[0].text;
+    answer2.textContent = questions[questionNumber].answers[1].text;
+    answer3.textContent = questions[questionNumber].answers[2].text;
+    answer4.textContent = questions[questionNumber].answers[3].text;
+}
+
+// let cycleText = function(){
+//     for (let i = 0; i < questions.length; i++) {
+//         questionNumber = questions[i];
+//         console.log(questionNumber);
+//         //questions.title.forEach();
+//         questionNumber.answers.forEach(function(answers, i) {
+//             let answerButton = document.createElement('button');
+//             answerButton.setAttribute('class', 'buttons answer');
+//             answerButton.setAttribute('value', answers);
+//             answerButton.textContent = answers;
+// //            answerButton.onClick = checkAnswer();
+//             answersElement.appendChild(answerButton);
+//         })
+//     }
+// };
 
 
 //create for loop that counts backwards from 60, begins when start button is selected
