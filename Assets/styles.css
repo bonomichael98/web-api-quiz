@@ -18,7 +18,12 @@ form {
     height: auto;
 }
 
-.buttons{
+.styled-text {
+    font-size: 20px;
+}
+
+.buttons {
+    width: 300px;
     background-color: green;
     padding: 15px 32px;
     text-align: center;
