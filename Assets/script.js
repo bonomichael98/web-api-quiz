@@ -13,12 +13,12 @@ let timeRemaining = 60;
 let questionNumber = 0;
 let countdownTimerDisplay = document.getElementById('time-remaining');
 let questions = [{
-        title : "Which country do cities of Perth, Adelade & Brisbane belong to? ",
+        title : "What identifier is used for an Array? ",
         answers: [
-            { text:"Australia", answer: true },
-            { text:"Russia", answer: false },
-            { text:"Italy", answer: false },
-            { text:"Uruguay", answer: false }
+            { text:"[]", answer: true },
+            { text:"()", answer: false },
+            { text:"{}", answer: false },
+            { text:"//", answer: false }
         ]},
         {
             title : "What is \"cynophobia\"?",
@@ -82,7 +82,7 @@ document.getElementById('start').addEventListener('click', function() {
         }
     },1000);
 
-
+    
 });
 
  //function to run when you click the display scores button
