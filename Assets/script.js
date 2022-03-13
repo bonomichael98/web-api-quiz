@@ -6,6 +6,7 @@ let answer1 = document.getElementById('button1');
 let answer2 = document.getElementById('button2');
 let answer3 = document.getElementById('button3');
 let answer4 = document.getElementById('button4');
+let buttons = document.getElementsByClassName('buttons');
 let answersElement = document.getElementById('answers');
 
 
@@ -70,6 +71,7 @@ document.getElementById('start').addEventListener('click', function() {
     cycleText();
 
 
+
     let timer = setInterval(function() {
         timeRemaining--;
         countdownTimerDisplay.textContent = 'You have ' + timeRemaining + ' seconds remaining.';
@@ -82,7 +84,16 @@ document.getElementById('start').addEventListener('click', function() {
         }
     },1000);
 
-    
+    let checkAnswer = function() {
+        if(questions[questionNumber].answers.answer = true && questionNumber <= questions.length) {
+        } 
+    };
+
+    answer1.addEventListener('click', checkAnswer());
+    answer2.addEventListener('click', checkAnswer());
+    answer3.addEventListener('click', checkAnswer());
+    answer4.addEventListener('click', checkAnswer());
+
 });
 
  //function to run when you click the display scores button
@@ -94,11 +105,6 @@ document.getElementById('start').addEventListener('click', function() {
 
 
 //     //create function to display buttons
-let checkAnswer = function() {
-    if(questions.answers === true) {
-
-    }
-}
 
 let hideElement = function(){
     startButton.classList.add('hidden');
@@ -115,7 +121,14 @@ let cycleText = function() {
     answer2.textContent = questions[questionNumber].answers[1].text;
     answer3.textContent = questions[questionNumber].answers[2].text;
     answer4.textContent = questions[questionNumber].answers[3].text;
-}
+};
+
+
+
+
+
+
+
 
 // let cycleText = function(){
 //     for (let i = 0; i < questions.length; i++) {
