@@ -8,8 +8,10 @@ let answer3 = document.getElementById('button3');
 let answer4 = document.getElementById('button4');
 let buttons = document.getElementsByClassName('buttons');
 let answersElement = document.getElementById('answers');
+let section2 = document.getElementById("scoreLog");
 
 
+let currentScore = 0;
 let timeRemaining = 60;
 let questionNumber = 0;
 let countdownTimerDisplay = document.getElementById('time-remaining');
@@ -91,7 +93,50 @@ function submitForm(event) {
 };
 form.addEventListener('submit', submitForm);
 
+var timer
 
+function endGame() {
+    clearInterval(timer);
+    console.log('game has ended')
+    countdownTimerDisplay.textContent = 'You have ' + timeRemaining + ' seconds remaining.';
+    //window.localStorage.setItem('playerScore', timeRemaining);
+    saveScore();
+    //hide questions
+    hideElement2();
+    //show report
+}
+
+function saveScore(timeRemaining, questionNumber) {
+    window.localStorage.setItem(questionNumber, timeRemaining);
+
+}
+
+function checkAnswer(evt) {
+
+    
+
+    const value = evt.currentTarget.dataset.value
+
+    for(let i = 0; i < questions.length; i++ ) {
+        if( questions[questionNumber].answer === value) {
+            questionNumber++;
+            currentScore++;
+            console.log("correct", questionNumber, questions.length);
+
+            if (questionNumber === questions.length ){ 
+                return endGame()
+
+            }   
+
+            cycleText();
+            return;
+
+        }
+    }
+    
+    timeRemaining -= 5;
+
+};
 
 //function to run when you click the start button
 document.getElementById('start').addEventListener('click', function() {
@@ -99,38 +144,25 @@ document.getElementById('start').addEventListener('click', function() {
     addButtons();
     cycleText();
 
-    let timer = setInterval(function() {
+    timer = setInterval(function() {
         timeRemaining--;
         countdownTimerDisplay.textContent = 'You have ' + timeRemaining + ' seconds remaining.';
-        if(timeRemaining <= 0 || questionNumber === 4) {
-            console.log('end the timer');
-            countdownTimerDisplay.textContent = 'You have 0 seconds remaining.';
-            window.localStorage.setItem('playerScore', timeRemaining);
-            clearInterval(timer);
+        if(timeRemaining <= 0) {
+            endGame();
         }
     },1000);
 
-    let checkAnswer = function(el) {
 
-        for(let i = 0; i < questions.length; i++ ) {
-            if(questions[questionNumber].answers === questions[questionNumber].answer && questionNumber < questions.length) {
-                questionNumber++;
-                cycleText();
-                break;                              
-            } else {
-                timeRemaining -= 5;
-            }
-        }
 
-    };
-
-answer1.addEventListener('click', function(){checkAnswer()});
-answer2.addEventListener('click', function(){checkAnswer()});
-answer3.addEventListener('click', function(){checkAnswer()});
-answer4.addEventListener('click', function(){checkAnswer()});
+    answer1.addEventListener('click', checkAnswer);
+    answer2.addEventListener('click', checkAnswer);
+    answer3.addEventListener('click', checkAnswer);
+    answer4.addEventListener('click', checkAnswer);
 
 
 });
+
+
 
  //function to run when you click the display scores button
  document.getElementById('display-scores').addEventListener('click', function() {
@@ -147,6 +179,12 @@ let hideElement = function(){
     scoresButton.classList.add('hidden');
 };
 
+let hideElement2 = function(){
+    section1.classList.add('hidden');
+    section2.classList.remove("hidden")
+};
+
+
 let addButtons = function(){
     section1.classList.remove('hidden');;
 };
@@ -154,9 +192,14 @@ let addButtons = function(){
 let cycleText = function() {
     questionsSection.textContent = questions[questionNumber].title;
     answer1.textContent = questions[questionNumber].answers[0];
+    answer1.dataset.value = questions[questionNumber].answers[0];
     answer2.textContent = questions[questionNumber].answers[1];
+    answer2.dataset.value = questions[questionNumber].answers[1];
     answer3.textContent = questions[questionNumber].answers[2];
+    answer3.dataset.value = questions[questionNumber].answers[2];
     answer4.textContent = questions[questionNumber].answers[3];
+    answer4.dataset.value = questions[questionNumber].answers[3];
+
 };
 
 
