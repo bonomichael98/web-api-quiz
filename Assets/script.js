@@ -1,4 +1,3 @@
-
 //start of global variables
 let startButton = document.getElementById('start');
 let scoresButton = document.getElementById('display-scores');
@@ -69,8 +68,8 @@ function endGame() {
 
 //function to save score to local storage
 function saveScore(timeRemaining, questionNumber) {
-    window.localStorage.setItem(questionNumber, timeRemaining);
-
+    window.localStorage.setItem('time-score', timeRemaining);
+    window.localStorage.setItem('score', questionNumber);
 }
 
 //function to check answer
@@ -147,8 +146,8 @@ let hideElement2 = function(){
     section2.classList.remove("hidden")
 };
 
-//function to display buttons
 
+//function to display buttons
 let addButtons = function(){
     section1.classList.remove('hidden');;
 };
@@ -164,7 +163,6 @@ let cycleText = function() {
     answer3.dataset.value = questions[questionNumber].answers[2];
     answer4.textContent = questions[questionNumber].answers[3];
     answer4.dataset.value = questions[questionNumber].answers[3];
-
 };
 
 
@@ -174,22 +172,6 @@ let cycleText = function() {
 
 
 
-
-// let cycleText = function(){
-//     for (let i = 0; i < questions.length; i++) {
-//         questionNumber = questions[i];
-//         console.log(questionNumber);
-//         //questions.title.forEach();
-//         questionNumber.answers.forEach(function(answers, i) {
-//             let answerButton = document.createElement('button');
-//             answerButton.setAttribute('class', 'buttons answer');
-//             answerButton.setAttribute('value', answers);
-//             answerButton.textContent = answers;
-// //            answerButton.onClick = checkAnswer();
-//             answersElement.appendChild(answerButton);
-//         })
-//     }
-// };
 
 
 //create for loop that counts backwards from 60, begins when start button is selected
