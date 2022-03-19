@@ -6,8 +6,8 @@ I attempted to create a javascript quiz with a countdown timer that logs the tim
 
 ## 02 Timer
 
-The timer is functioning, however when the quiz is finished there isn't currently a system to store the score.
+The timer is functioning, and counts down from 60. The quiz ends when the timer runs out or when you answer the final question.
 
 ## 03 Questions
 
-The questions do have a method to cycle through to the next question, although I was unable to add a system to check for a correct answer.
+The questions cycle when the correct answer is selected and your score increases by one.

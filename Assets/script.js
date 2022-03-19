@@ -1,3 +1,5 @@
+
+//start of global variables
 let startButton = document.getElementById('start');
 let scoresButton = document.getElementById('display-scores');
 let section1 = document.getElementById('section-1');
@@ -9,55 +11,14 @@ let answer4 = document.getElementById('button4');
 let buttons = document.getElementsByClassName('buttons');
 let answersElement = document.getElementById('answers');
 let section2 = document.getElementById("scoreLog");
-
-
 let currentScore = 0;
 let timeRemaining = 60;
 let questionNumber = 0;
 let countdownTimerDisplay = document.getElementById('time-remaining');
-// let questions = [{
-//         title : "What identifier is used for an Array? ",
-//         answers: [
-//             { text:"[]", answer: true },
-//             { text:"()", answer: false },
-//             { text:"{}", answer: false },
-//             { text:"//", answer: false }
-//         ]},
-//         {
-//             title : "What is \"cynophobia\"?",
-//         answers: [
-//             { text:"Fear of snakes", answer: false },
-//             { text:"Fear of dogs", answer: true },
-//             { text:"Fear of injections", answer: false },
-//             { text:"Fear of sleeping", answer: false }
-//         ]},
-//         {
-//             title : "Who was the first woman pilot to fly solo across the Atlantic?",
-//         answers: [
-//             { text:"Amelia Earhart", answer: true },
-//             { text:"Bessie Coleman", answer: false },
-//             { text:"Jacqueline Cochran", answer: false },
-//             { text:"Tammie Jo Schults", answer: false }
-            
-//         ]},
-//         {
-//             title : "What is the name of the biggest technology company in South Korea?",
-//         answers: [
-//             { text:"POSCO", answer: false },
-//             { text:"KIA", answer: false },
-//             { text:"Hyundai", answer: false },
-//             { text:"Samsung", answer: true }
-//         ]},
-//         {
-//             title : "Worship of Krishna is observed by which Religious Faith?",
-//         answers: [
-//             { text:"Paganism", answer: false },
-//             { text:"Islam", answer: false },
-//             { text:"Hindu", answer: true },
-//             { text:"Buddhism", answer: false }
-//             ]
-// }];
 
+var timer
+
+//questions
 let questions = [
     {
         title:"What identifier is used for an Array?",
@@ -85,32 +46,34 @@ let questions = [
         answer:"()"
     }
 ]
+//end of global variables
 
-
+//prevent form submission
 let form = document.getElementById('main-form');
 function submitForm(event) {
     event.preventDefault();
 };
 form.addEventListener('submit', submitForm);
 
-var timer
 
+//function to end the game
 function endGame() {
     clearInterval(timer);
     console.log('game has ended')
     countdownTimerDisplay.textContent = 'You have ' + timeRemaining + ' seconds remaining.';
-    //window.localStorage.setItem('playerScore', timeRemaining);
     saveScore();
     //hide questions
     hideElement2();
     //show report
 }
 
+//function to save score to local storage
 function saveScore(timeRemaining, questionNumber) {
     window.localStorage.setItem(questionNumber, timeRemaining);
 
 }
 
+//function to check answer
 function checkAnswer(evt) {
 
     
@@ -137,6 +100,8 @@ function checkAnswer(evt) {
     timeRemaining -= 5;
 
 };
+//function to check answer end
+
 
 //function to run when you click the start button
 document.getElementById('start').addEventListener('click', function() {
@@ -161,7 +126,7 @@ document.getElementById('start').addEventListener('click', function() {
 
 
 });
-
+//end start function
 
 
  //function to run when you click the display scores button
@@ -171,9 +136,7 @@ document.getElementById('start').addEventListener('click', function() {
     //displayScores();
  });
 
-
-//     //create function to display buttons
-
+//functions to hide buttons
 let hideElement = function(){
     startButton.classList.add('hidden');
     scoresButton.classList.add('hidden');
@@ -184,11 +147,13 @@ let hideElement2 = function(){
     section2.classList.remove("hidden")
 };
 
+//function to display buttons
 
 let addButtons = function(){
     section1.classList.remove('hidden');;
 };
 
+//function to change text for questions
 let cycleText = function() {
     questionsSection.textContent = questions[questionNumber].title;
     answer1.textContent = questions[questionNumber].answers[0];
